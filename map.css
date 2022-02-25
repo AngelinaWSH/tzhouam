@@ -1,0 +1,12 @@
+.input{
+    width: 100%;
+    float: left;
+    margin: 10px;
+
+    position: relative;
+
+}
+.input_middle{
+    position: relative;
+    width: 70%;
+}

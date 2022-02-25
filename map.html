@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Map</title>
+    <link rel="stylesheet" href="map.css">
+    <style>
+      html,body{
+            height: 100%;
+        }
+
+    </style>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="jquery-3.6.0.js"></script>
+    <script src="map.js"></script>
+
+  </head>
+  <body>
+
+    <div style="width: 20%;height: 100%; font-size: x-large;float: left;display: inline;border-right: black solid 1px;float: left">
+      <div id="input" style="width: 100%">
+        <div style="width: 100%" class="input">
+          <label for="input_address" class="input_context">Insert markers: </label><br>
+          <input type="text" id="input_address" class="input_context input_middle" name="input_address" style="font-size: x-large">
+          <input type="button" value="Insert" id="input_insert" class="input_context" onclick="insert_marker() " style="font-size: x-large">
+        </div>
+        <hr>
+        <div  class="input" style="width: 100%">
+          <label for="change_zoom" class="input_context">Zoom: </label><br>
+          <input id="change_zoom" class="input_context input_middle" type="range" max="20" min="0" value="16" onchange="set_zoom()" style="font-size: x-large">
+          <label id="zoom_value" class="input_context">16</label>
+        </div>
+        <hr>
+        <div class="input" style="width: 100%" >
+          <label for="markers"  class="input_context">Delete markers: </label><br>
+          <select class="input_context input_middle" id="markers" style="font-size: x-large"></select>
+          <input type="button" class="input_context" value="Delete" id="input_delete" onclick="delete_marker()" style="font-size: x-large">
+        </div>
+        <hr>
+        <div class="input" style="width: 100%" >
+          <div id="time_start">
+<!--            <label  class="input_context">Select time duration:-->
+<!--              <br>        1:in yyyy/mm/dd/hh format-->
+<!--              <br>        2:If query a time point, let the end empty.</label><br>-->
+<!--            <label style="font-size: large">Start:</label><br>-->
+            <input type="date" class="input_context input_middle" id="time_s_y" style="font-size: x-large" maxlength="4" >
+
+          </div>
+          <div id="time_end">
+            <label style="font-size: large">End:</label><br>
+            <input type="date" class="input_context input_middle" id="time_e_y" style="font-size: x-large" maxlength="4" >
+
+          </div>
+
+          <input type="button" class="input_context" value="Input" id="input_time" onclick="delete_marker()" style="font-size: x-large;position: absolute;right: 5%;bottom: 10%">
+        </div>
+        <hr>
+        <div>
+          <label>Map</label>
+          <input type="button" >
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 80%;height: 100%;display: inline">
+      <span id="map" style="width: 40%; height: 100%; border-color: aquamarine;float: left;display: inline"></span>
+      <span>
+        <span id="info1" style="width: 40%; height: 50%; border: black solid 1px;text-align: center">
+          <img src="img_1.png" style="height: 50%" >
+        </span>
+        <span id="info2" style="width: 40%; height: 50%;border: black solid 1px">
+          <img src="img_2.png" style="height: 50%">
+        </span>
+      </span>
+
+    </div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4f0XTAsUUy38o66dry7Ma56lLEwrLT2M&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+  </body>
+</html>
